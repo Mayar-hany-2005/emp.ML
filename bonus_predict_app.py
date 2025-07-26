@@ -16,13 +16,14 @@ black = "#000000"
 # 🧠 تحميل البيانات
 @st.cache_data
 def load_data():
-    salary = pd.read_csv("D:/مشاريعي/employee/salary.csv", encoding='utf-8')
-    employee = pd.read_csv("D:/مشاريعي/employee/employee.csv", encoding='utf-8')
-    current_emp_snapshot = pd.read_csv("D:/مشاريعي/employee/current_employee_snapshot.csv", encoding='utf-8')
-    department_employee = pd.read_csv("D:/مشاريعي/employee/department_employee.csv", encoding='utf-8')
-    department = pd.read_csv("D:/مشاريعي/employee/department.csv", encoding='utf-8')
-    department_manager = pd.read_csv("D:/مشاريعي/employee/department_manager.csv", encoding='utf-8')
-    title = pd.read_csv("D:/مشاريعي/employee/title.csv", encoding='utf-8')
+   salary = pd.read_csv("salary.csv", encoding='utf-8')
+   employee = pd.read_csv("employee.csv", encoding='utf-8')
+   current_emp_snapshot = pd.read_csv("current_employee_snapshot.csv", encoding='utf-8')
+   department = pd.read_csv("department.csv", encoding='utf-8') 
+   department_employee = pd.read_csv("department_employee.csv", encoding='utf-8')
+   department_manager = pd.read_csv("department_manager.csv", encoding='utf-8')
+   title = pd.read_csv("title.csv", encoding='utf-8')
+
 
     # حساب العمر
     emp_snapshot = current_emp_snapshot.merge(employee, left_on="employee_id", right_on="id", how="left")
