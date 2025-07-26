@@ -42,12 +42,23 @@ You can explore salary trends, analyze department performance, and predict wheth
 
 ## 🧠 Tech Stack
 
-- **Python** (Pandas, Numpy, Scikit-learn)
-- **Streamlit** for dashboard GUI
-- **Plotly** for interactive charts
-- **SMOTE** for balancing classification data
-- **Scikit-learn** for model building
-- **Google Drive** as a data source
+Pandas – Data manipulation and preprocessing
+
+NumPy – Numerical operations
+
+Scikit-learn – Model building (Random Forest Classifier, Logistic Regression, etc.)
+
+Streamlit – To build an interactive web dashboard
+
+Plotly
+
+Plotly Express – For fast and intuitive visualizations
+
+Graph Objects & Subplots – For customized and multi-panel charts
+
+SMOTE (from imbalanced-learn) – To balance the dataset for classification tasks
+
+Google Drive – Used as an external data source (CSV file hosted and fetched via requests)
 
 
 
