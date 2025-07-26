@@ -153,7 +153,6 @@ options = [
     "Distribution of Tenure Years per Department",
     "Tenure vs Salary by Department",
     "Salary Distribution by Department",
-    "Distribution of Employees by Title",
     "employee distribution",
     "Average Salary per Job Title",
     "common titles by age group"
@@ -240,37 +239,6 @@ if center_button and question:
         merged = current_emp_snapshot[['employee_id', 'dept_name']].merge(salary, on='employee_id')
         dept_avg = merged.groupby('dept_name')['amount'].mean().reset_index().sort_values(by='amount', ascending=False)
         fig = px.bar(dept_avg, x='dept_name', y='amount', title="Avg Salary per Department", color='amount', color_continuous_scale='pinkyl')
-
-    elif question == "distribution of tenure years per department":
-        # 🧮 تجهيز بيانات tenure
-        department_employee['to_date'] = department_employee['to_date'].replace('9999-01-01', "2002-12-12")
-        department_employee['from_date'] = pd.to_datetime(department_employee['from_date'])
-        department_employee['to_date'] = pd.to_datetime(department_employee['to_date'])
-        department_employee['tenure_days'] = (department_employee['to_date'] - department_employee['from_date']).dt.days
-        department_employee['tenure_years'] = department_employee['tenure_days'] / 365
-
-     # 🎻 رسم violin plot
-        fig = px.violin(
-           department_employee,
-          y="department_id",
-          x="tenure_years",
-          box=True,
-          points="all",
-           color="department_id",
-          color_discrete_sequence=px.colors.sequential.Pinkyl
-        )
-        fig.update_layout(
-          template="plotly_dark",
-          plot_bgcolor="black",
-          paper_bgcolor="black",
-          font=dict(family="Arial", color="pink", size=14),
-          title_font=dict(size=22, color="pink"),
-          xaxis_title="Tenure (Years)",
-          yaxis_title="Department",
-          title="🎻 Distribution of Tenure Years per Department"
-        )
-        st.plotly_chart(fig, use_container_width=True)
-
 
 
     elif question == "tenure vs salary by department":
