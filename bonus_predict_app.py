@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import requests
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
@@ -16,7 +17,9 @@ black = "#000000"
 # 🧠 تحميل البيانات
 @st.cache_data
 def load_data():
-    salary = pd.read_csv("salary.csv", encoding='utf-8')
+    salary_url = "https://drive.google.com/uc?export=download&id=1MtK2OqbwVfSr0mqWQK9na0jFMZnjG93d"
+    salary = pd.read_csv(salary_url)
+
     employee = pd.read_csv("employee.csv", encoding='utf-8')
     current_emp_snapshot = pd.read_csv("current_employee_snapshot.csv", encoding='utf-8')
     department = pd.read_csv("department.csv", encoding='utf-8') 
@@ -31,6 +34,7 @@ def load_data():
     emp_snapshot.dropna(subset=["salary_amount"], inplace=True)
 
     return salary, employee, emp_snapshot, department_employee, department, department_manager, title
+
 
 
 
