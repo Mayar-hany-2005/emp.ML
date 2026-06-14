@@ -18,9 +18,11 @@ black = "#000000"
 # 🧠 تحميل البيانات
 @st.cache_data
 def load_data():
-    salary_url = "https://drive.google.com/uc?export=download&id=1MtK2OqbwVfSr0mqWQK9na0jFMZnjG93d"
-    salary = pd.read_csv(salary_url)
-
+    salary = pd.read_csv("salary.csv", encoding='utf-8')
+    
+    employee = pd.read_csv("employee.csv", encoding='utf-8')
+    current_emp_snapshot = pd.read_csv("current_employee_snapshot.csv", encoding='utf-8')
+    
     employee = pd.read_csv("employee.csv", encoding='utf-8')
     current_emp_snapshot = pd.read_csv("current_employee_snapshot.csv", encoding='utf-8')
     department = pd.read_csv("department.csv", encoding='utf-8') 
