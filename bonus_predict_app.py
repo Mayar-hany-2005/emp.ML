@@ -402,4 +402,16 @@ if center_button and question:
         title_font=dict(size=22, color="pink")
     )
     st.plotly_chart(fig, use_container_width=True)
+    # Show figure only if it exists
+    if fig is not None:  # الأفضل نستخدم الشرط ده للتأكد إن في رسمة
+        if hasattr(fig, 'update_layout'):
+            fig.update_layout(
+                template="plotly_dark",
+                plot_bgcolor="black",
+                paper_bgcolor="black",
+                font=dict(family="Arial", color="pink", size=14),
+                title_font=dict(size=22, color="pink")
+            )
+        # خدي بالك إن السطر ده دخل جوه الشرط (عملنا له Indentation)
+        st.plotly_chart(fig, use_container_width=True)
 st.markdown(f"<p style='color:{pink}; font-size:12px; text-align:center;'>Made with ❤️ by Mayar</p>", unsafe_allow_html=True)
