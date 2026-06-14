@@ -391,17 +391,6 @@ if center_button and question:
 
     else:
         st.warning("⚠️ Please enter a valid question.")
-
-    # Show figure only if it exists
-    if hasattr(fig, 'update_layout'):  # أو ممكن isinstance(fig, (go.Figure, px.Figure)) لو عايزة توسعي أكتر
-      fig.update_layout(
-        template="plotly_dark",
-        plot_bgcolor="black",
-        paper_bgcolor="black",
-        font=dict(family="Arial", color="pink", size=14),
-        title_font=dict(size=22, color="pink")
-    )
-    st.plotly_chart(fig, use_container_width=True)
     # Show figure only if it exists
     if fig is not None:  # الأفضل نستخدم الشرط ده للتأكد إن في رسمة
         if hasattr(fig, 'update_layout'):
