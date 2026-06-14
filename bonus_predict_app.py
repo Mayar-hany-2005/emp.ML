@@ -18,7 +18,7 @@ black = "#000000"
 # 🧠 تحميل البيانات
 @st.cache_data
 def load_data():
-    salary = pd.read_csv("salary.csv", encoding='utf-8')
+    salary = pd.read_csv("salary.zip")
     
     employee = pd.read_csv("employee.csv", encoding='utf-8')
     current_emp_snapshot = pd.read_csv("current_employee_snapshot.csv", encoding='utf-8')
